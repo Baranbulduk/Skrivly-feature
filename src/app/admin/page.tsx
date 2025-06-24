@@ -140,7 +140,7 @@ export default function AdminPage() {
                           <button
                             onClick={() => handleDelete(index)}
                             disabled={deleteLoading === index}
-                            className="text-[#d30000] hover:text-[#b30000] disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                            className="bg-[#ff1f1f] text-red-100 font-bold px-4 py-2 rounded-md hover:bg-[#b30000] disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             {deleteLoading === index ? 'Deleting...' : 'Delete'}
                           </button>
