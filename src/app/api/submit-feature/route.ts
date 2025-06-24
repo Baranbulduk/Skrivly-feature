@@ -19,14 +19,14 @@ export async function POST(request: Request) {
 
     // Check if CSV file exists, if not create it with headers
     if (!fs.existsSync(csvFilePath)) {
-      const headers = 'Name,Email,Feature,Timestamp\n';
+      const headers = 'Name;Email;Feature;Timestamp\n';
       await fs.promises.writeFile(csvFilePath, headers);
       console.log('Created new CSV file with headers');
     }
 
     // Prepare the new row data
     const timestamp = new Date().toISOString();
-    const newRow = `"${name}","${email}","${feature}","${timestamp}"\n`;
+    const newRow = `"${name}";"${email}";"${feature}";"${timestamp}"\n`;
 
     // Append the new row to the CSV file
     try {
