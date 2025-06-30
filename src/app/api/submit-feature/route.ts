@@ -25,8 +25,10 @@ export async function POST(request: Request) {
     }
 
     // Prepare the new row data
-    const timestamp = new Date().toISOString();
-    const newRow = `"${name}";"${email}";"${feature}";"${timestamp}"\n`;
+    const now = new Date();
+    const pad = (n: number) => n.toString().padStart(2, '0');
+    const formattedTimestamp = `${pad(now.getHours())}:${pad(now.getMinutes())} ${pad(now.getDate())}-${pad(now.getMonth() + 1)}-${now.getFullYear()}`;
+    const newRow = `"${name}";"${email}";"${feature}";"${formattedTimestamp}"\n`;
 
     // Append the new row to the CSV file
     try {
