@@ -19,7 +19,7 @@ export default function Home() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('/api/submit-feature', {
+      const response = await fetch('/backend/submit-feature', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
